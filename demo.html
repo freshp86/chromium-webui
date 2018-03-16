@@ -1,23 +1,24 @@
 <!doctype html>
 <html >
-	<head>
-		<meta charset="utf-8">
-		<title>WebUI components demo page</title>
-		<link rel="import" href="src/cr_elements/cr_toggle/cr_toggle.html">
-		<style>
-		</style>
-	</head>
-	<body>
-    <h1>WebUI components demo</h1>
+  <head>
+    <meta charset="utf-8">
+    <title>WebUI components demo page</title>
+    <link rel="import" href="demo_app.html">
+    <style>
+      html, body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
 
-    <h2>cr-toggle</h2>
-		<cr-toggle></cr-toggle>
-		<cr-toggle disabled></cr-toggle>
-
-    <h2>cr-action-menu</h2>
-    <span>TODO(dpapad)</span>
-
-    <h2>cr-dialog</h2>
-    <span>TODO(dpapad)</span>
-	</body>
+      body {
+        margin: 0;
+        background-color: var(--md-background-color);
+      }
+    </style>
+  </head>
+  <body>
+    <demo-app></demo-app>
+    <link rel="stylesheet" href="src/css/md_colors.css">
+  </body>
 </html>

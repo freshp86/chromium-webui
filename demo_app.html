@@ -1,0 +1,70 @@
+<link rel="import" href="src/html/polymer.html">
+
+<link rel="import" href="src/cr_elements/cr_toolbar/cr_toolbar.html">
+
+<dom-module id="demo-app">
+  <template>
+    <style>
+      cr-toolbar {
+        background-color: var(--md-toolbar-color);
+      }
+
+      #sidebar {
+        border-right: 1px solid black;
+        width: 256px;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+
+      #sidebar > button {
+        -webkit-appearance: none;
+        background: none;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 12px;
+        text-align: start;
+        width: 100%;
+        outline: none;
+      }
+
+      #sidebar > button:hover,
+      #sidebar > button:focus {
+        background-color: lightgray;
+      }
+
+      :host > div {
+        display: flex;
+        height: 100%;
+      }
+
+      iframe {
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      #main {
+        flex: 1;
+      }
+    </style>
+    <cr-toolbar
+        page-name="WebUI gallery"
+        search-prompt="Search components"
+        clear-label="clear"
+        menu-label="foo"
+        show-search>
+    </cr-toolbar>
+    <div>
+      <div id="sidebar">
+        <template is="dom-repeat" items="[[elements]]">
+          <button on-click="onItemClick_">[[item]]</button>
+        </template>
+      </div>
+      <div id="main">
+        <iframe src="[[currentSrc]]"></iframe>
+      </div>
+    </div>
+  </template>
+  <script src="demo_app.js"></script>
+</dom-module>
