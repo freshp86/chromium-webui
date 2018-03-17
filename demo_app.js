@@ -6,9 +6,9 @@ Polymer({
       type: Array,
       value: function() {
         return [
-          'cr_elements/cr_toggle',
-          'cr_elements/cr_toast',
           'cr_elements/cr_dialog',
+          'cr_elements/cr_toast',
+          'cr_elements/cr_toggle',
         ];
       },
     },
@@ -16,8 +16,19 @@ Polymer({
     currentSrc: String,
   },
 
+  onDomChange_: function() {
+    this.setSelected_(this.$.sidebar.querySelector('button'));
+  },
+
   onItemClick_: function(e) {
-    this.currentSrc = `src/${e.model.item}/demo.html`;
-    console.log('item', e.model.item);
+    this.setSelected_(e.target);
+  },
+
+  setSelected_: function(element) {
+    this.currentSrc = `src/${element.dataset.path}/demo.html`;
+    let selected = this.$.sidebar.querySelector('button[selected]');
+    if (selected)
+      selected.removeAttribute('selected');
+    element.setAttribute('selected', '');
   },
 });

@@ -1,0 +1,12 @@
+{
+  "name": "chromium-webui",
+  "version": "0.0.1",
+  "description": "A re-usable port of Chromium's WebUI cobebase.",
+  "private": true,
+  "author": "dpapad@chromium.org",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {}
+}

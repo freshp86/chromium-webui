@@ -5,8 +5,19 @@
 <dom-module id="demo-app">
   <template>
     <style>
+      :host {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
       cr-toolbar {
         background-color: var(--md-toolbar-color);
+      }
+
+      :host > div {
+        display: flex;
+        flex: 1;
       }
 
       #sidebar {
@@ -25,17 +36,10 @@
         padding: 12px;
         text-align: start;
         width: 100%;
-        outline: none;
       }
 
-      #sidebar > button:hover,
-      #sidebar > button:focus {
+      #sidebar > button[selected] {
         background-color: lightgray;
-      }
-
-      :host > div {
-        display: flex;
-        height: 100%;
       }
 
       iframe {
@@ -57,8 +61,9 @@
     </cr-toolbar>
     <div>
       <div id="sidebar">
-        <template is="dom-repeat" items="[[elements]]">
-          <button on-click="onItemClick_">[[item]]</button>
+        <template is="dom-repeat" items="[[elements]]"
+            on-dom-change="onDomChange_" notify-dom-change>
+          <button data-path$="[[item]]" on-click="onItemClick_">[[item]]</button>
         </template>
       </div>
       <div id="main">

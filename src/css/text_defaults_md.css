@@ -15,17 +15,17 @@
  * to an HTML string.
  * Otherwise its placeholders won't be expanded. */
 
-@import url(css/roboto.css);
+@import url(roboto.css);
 
 html {
   direction: $i18n{textDirection};
 }
 
 body {
-  font-family: Roboto, $i18nRaw{fontFamily};
+  font-family: Roboto, DejaVu Sans, Arial, sans-serif;
   font-size: 81.25%;
 }
 
 button {
-  font-family: Roboto, $i18nRaw{fontFamily};
+  font-family: Roboto, DejaVu Sans, Arial, sans-serif;
 }
