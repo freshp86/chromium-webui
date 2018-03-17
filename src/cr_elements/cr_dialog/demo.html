@@ -1,0 +1,76 @@
+<!doctype html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title>WebUI components demo page</title>
+    <link rel="import" href="cr_dialog.html">
+    <link rel="import" href="../cr_toggle/cr_toggle.html">
+    <link rel="import" href="../shared_style_css.html">
+    <link rel="import" href="../../../third_party/polymer/paper-button/paper-button.html">
+    <link rel="stylesheet" href="../../css/text_defaults_md.css">
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <dom-module id="cr-dialog-demo">
+      <template>
+        <style include="cr-shared-style">
+          :host {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+          }
+
+          .row {
+            display: flex;
+            margin: 16px 0;
+          }
+
+          .row label {
+            flex: 1;
+          }
+        </style>
+
+        <paper-button class="action-button" on-click="onShowDialog_">
+          Show dialog
+        </paper-button>
+
+        <dialog is="cr-dialog" id="dialog" close-text="Close">
+          <div slot="title">Header goes here</div>
+          <div slot="body">
+            <h2>Dialog contents go here</h2>
+            <div>Click outside the dialog to observe pulsing effect.</div>
+
+            <div class="row">
+              <label>Show footer</label>
+              <cr-toggle checked="{{showFooter_}}"></cr-toggle>
+            </div>
+            <div class="row">
+              <label>Disable action button</label>
+              <cr-toggle checked="{{disableActionButton_}}"></cr-toggle>
+            </div>
+          </div>
+          <div slot="button-container">
+            <paper-button on-click="onCancel_" class="cancel-button">Cancel</paper-button>
+            <paper-button on-click="onOk_" class="action-button"
+                disabled="[[disableActionButton_]]">Ok</paper-button>
+          </div>
+          <div slot="footer" hidden$="[[!showFooter_]]">
+            Footer goes here
+          </div>
+        </dialog>
+      </template>
+    </dom-module>
+
+    <cr-dialog-demo></cr-dialog-demo>
+    <script src="demo.js"></script>
+  </body>
+</html>
