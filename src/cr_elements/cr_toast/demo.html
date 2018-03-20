@@ -4,20 +4,30 @@
     <meta charset="utf-8">
     <title>WebUI components demo page</title>
     <link rel="import" href="cr_toast.html">
-    <style>
-      body {
-        margin: 0;
-      }
-
-      cr-toast {
-        color: #fff;
-      }
-    </style>
+    <link rel="import" href="../../../third_party/polymer/paper-button/paper-button.html">
+    <link rel="import" href="../../../third_party/polymer/paper-input/paper-input.html">
+    <link rel="stylesheet" href="../../css/text_defaults_md.css">
   </head>
   <body>
-    <h1>cr-toast demo</h1>
+    <dom-module id="cr-toast-demo">
+      <template>
+        <style>
+          cr-toast {
+            color: #fff;
+          }
+        </style>
 
-    <h2>enabled</h2>
-    <cr-toast open>Foo</cr-toast>
+        <paper-button on-click="onShow_" raised>Show</paper-button>
+        <paper-button on-click="onHide_" raised>Hide</paper-button>
+        <cr-toast>[[message]]</cr-toast>
+        <paper-input label="enter toast text" value="{{message}}"
+            always-float-label>
+        </paper-input>
+      </template>
+    </dom-module>
+
+    <h1>cr-toast</h1>
+    <cr-toast-demo></cr-toast-demo>
+    <script src="demo.js"></script>
   </body>
 </html>
