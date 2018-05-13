@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>WebUI components demo page</title>
     <link rel="import" href="cr_toast.html">
+    <link rel="import" href="../paper_button_style_css.html">
     <link rel="import" href="../../../third_party/polymer/paper-button/paper-button.html">
     <link rel="import" href="../../../third_party/polymer/paper-input/paper-input.html">
     <link rel="stylesheet" href="../../css/text_defaults_md.css">
@@ -11,14 +12,13 @@
   <body>
     <dom-module id="cr-toast-demo">
       <template>
-        <style>
+        <style include="paper-button-style">
           cr-toast {
             color: #fff;
           }
         </style>
-
-        <paper-button on-click="onShow_" raised>Show</paper-button>
-        <paper-button on-click="onHide_" raised>Hide</paper-button>
+        <paper-button on-click="onShow_">Show</paper-button>
+        <paper-button on-click="onHide_">Hide</paper-button>
         <cr-toast>[[message]]</cr-toast>
         <paper-input label="enter toast text" value="{{message}}"
             always-float-label>
