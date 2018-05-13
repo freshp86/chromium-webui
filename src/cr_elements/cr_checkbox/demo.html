@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>WebUI components demo page</title>
-    <link rel="import" href="cr_toggle.html">
+    <link rel="import" href="cr_checkbox.html">
     <link rel="stylesheet" href="../../css/text_defaults_md.css">
     <style>
       html, body {
@@ -12,10 +12,10 @@
     </style>
   </head>
   <body>
-    <dom-module id="cr-toggle-demo">
+    <dom-module id="cr-checkbox-demo">
       <template>
         <style>
-          cr-toggle {
+          cr-checkbox {
             display: inline-block;
             margin: 0 10px;
           }
@@ -24,17 +24,17 @@
             padding: 10px 0;
           }
         </style>
-        <template is="dom-repeat" items="[[toggleStates_]]">
+        <template is="dom-repeat" items="[[states_]]">
           <div>
-            <cr-toggle disabled="[[item.disabled]]" checked="{{item.checked}}"></cr-toggle>
+            <cr-checkbox disabled="[[item.disabled]]" checked="{{item.checked}}"></cr-checkbox>
             <span>disabled=[[item.disabled]] checked=[[item.checked]]</span>
           </div>
         </template>
       </template>
     </dom-module>
 
-    <h1>cr-toggle</h1>
-    <cr-toggle-demo></cr-toggle-demo>
+    <h1>cr-checkbox</h1>
+    <cr-checkbox-demo></cr-checkbox-demo>
     <script src="demo.js"></script>
   </body>
 </html>

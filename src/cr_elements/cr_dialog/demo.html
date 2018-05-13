@@ -5,7 +5,7 @@
     <title>WebUI components demo page</title>
     <link rel="import" href="cr_dialog.html">
     <link rel="import" href="../cr_toggle/cr_toggle.html">
-    <link rel="import" href="../shared_style_css.html">
+    <link rel="import" href="../paper_button_style_css.html">
     <link rel="import" href="../../../third_party/polymer/paper-button/paper-button.html">
     <link rel="stylesheet" href="../../css/text_defaults_md.css">
     <style>
@@ -21,7 +21,7 @@
   <body>
     <dom-module id="cr-dialog-demo">
       <template>
-        <style include="cr-shared-style">
+        <style include="paper-button-style">
           :host {
             display: block;
             margin: 8px;
@@ -42,19 +42,20 @@
           Show dialog
         </paper-button>
 
-        <dialog is="cr-dialog" id="dialog" close-text="Close">
+        <cr-dialog id="dialog" close-text="Close">
           <div slot="title">Header goes here</div>
           <div slot="body">
-            <h2>Dialog contents go here</h2>
+            <div>Dialog contents go here</div>
             <div>Click outside the dialog to observe pulsing effect.</div>
+
+            <div class="row">
+              <label>Disable action button</label>
+              <cr-toggle checked="{{disableActionButton_}}"></cr-toggle>
+            </div>
 
             <div class="row">
               <label>Show footer</label>
               <cr-toggle checked="{{showFooter_}}"></cr-toggle>
-            </div>
-            <div class="row">
-              <label>Disable action button</label>
-              <cr-toggle checked="{{disableActionButton_}}"></cr-toggle>
             </div>
           </div>
           <div slot="button-container">
@@ -65,7 +66,7 @@
           <div slot="footer" hidden$="[[!showFooter_]]">
             Footer goes here
           </div>
-        </dialog>
+        </cr-dialog>
       </template>
     </dom-module>
 

@@ -9,6 +9,7 @@ Polymer({
           'cr_elements/cr_dialog',
           'cr_elements/cr_toast',
           'cr_elements/cr_toggle',
+          'cr_elements/cr_checkbox',
         ];
       },
     },
